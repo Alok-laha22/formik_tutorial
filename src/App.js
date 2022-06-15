@@ -1,5 +1,6 @@
 import { Formik, useField, Form } from 'formik';
 import * as Yup from 'yup';
+import Users from './components/users';
 
 
 const CustomTextInput = ({ label, ...props }) => {
@@ -97,6 +98,8 @@ function App() {
 
       </Formik>
 
+      <Users />
+      
     </div>
   );
 }
