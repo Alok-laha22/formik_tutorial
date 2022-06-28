@@ -1,21 +1,16 @@
 import React from 'react';
 // import Formik from 'formik';
 // import * as Yup from 'yup';
-
-
-let dummy_users = [
-    {name: 'Alok Laha', Age: 24},
-    {name: 'Ayan Laha', Age: 25},
-    {name: 'Tarak Laha', Age: 26},
-    {name: 'Raju Laha', Age: 27}
-]
+import UserContext from '../store/UserContext';
 
 
 class Users extends React.Component {
-    constructor() {
-        super();
+
+    constructor(props,context) {
+        super(props,context);
+        console.log('context value',this)
         this.state = {
-            users: dummy_users,
+            users: this.context.users_list,
             isClicked: false
         }
         this.clickHandler = this.clickHandler.bind(this);
@@ -60,5 +55,7 @@ class Users extends React.Component {
         )
     }
 }
+
+Users.contextType = UserContext;
 
 export default Users;

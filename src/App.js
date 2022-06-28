@@ -2,6 +2,8 @@ import { Formik, useField, Form } from 'formik';
 import * as Yup from 'yup';
 import Users from './components/users';
 import Popup from './components/popup';
+import UserContextProvider from './store/UserContextProvider';
+import { Component } from 'react';
 
 
 const CustomTextInput = ({ label, ...props }) => {
@@ -51,7 +53,16 @@ const CustomSelect = ({ label, ...props }) => {
   )
 }
 
-function App() {
+// let dummy_data = [
+//   {name: 'Alok Laha', Age: 24},
+//   {name: 'Ayan Laha', Age: 25},
+//   {name: 'Tarak Laha', Age: 26},
+//   {name: 'Raju Laha', Age: 27}
+// ]
+
+class App extends Component {
+
+render (){
   return (
     <div className="App">
       <Formik
@@ -99,11 +110,14 @@ function App() {
 
       </Formik>
 
-      <Users />
+      <UserContextProvider>
+        <Users />
+      </UserContextProvider>
       <Popup />
       
     </div>
   );
+}
 }
 
 export default App;
